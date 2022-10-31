@@ -1,0 +1,5 @@
+<%= form_with url: "/reviews", method: :get, local: true, :html => {:'data-type' => 'json', :multipart => true} do |form| %>
+  <%= form.label :url, "Enter URL:" %>
+  <%= form.text_field :url %>
+  <%= form.submit "Get Reviews" %>
+<% end %>

@@ -1,0 +1,24 @@
+<%= link_to "Back", root_path %>
+
+<% @reviews.each do |review| %>
+  <div class="col-xs-12 mainReviews" aria-hidden="false">
+    <div class="col-xs-12 starReviews">
+      <div class="recommended">
+        <div class="numRec">
+          <%= review.dig(:star_ratting) %>
+          <span class="visually-hidden">stars</span>
+        </div>
+        <div class="lenderRec"><%= review.dig(:is_recommended) %></div>
+      </div>
+    </div>
+
+    <div class="col-lg-9 col-sm-8 col-xs-12 reviewDetail">
+      <p class="reviewTitle"><%= review.dig(:review_title) %></p>
+      <p class="reviewText"><%= review.dig(:review_content) %></p>
+        <div class="hideText" aria-hidden="true">
+          <p class="consumerName"> <%= review.dig(:author) %> </p>
+          <p class="consumerReviewDate"><%= review.dig(:date_of_review) %></p>
+        </div>
+    </div>
+  </div>
+<% end %>
